@@ -95,7 +95,7 @@
 !/**/Outputs/**/*.svg
 !/**/Outputs/**/*.tex
 !/**/Outputs/**/*.png
-!/**/Outputs/**/*.xlxs
+!/**/Outputs/**/*.xlsx
 
 
 #######################
