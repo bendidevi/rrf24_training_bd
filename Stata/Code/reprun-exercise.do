@@ -23,7 +23,8 @@ use "${onedrive}\TZA_CCT_baseline.dta", clear
 *------------------------------------------------------------------------------- 
 
 * Drop duplicates
-sort hhid
+*sort hhid
+isid hhid key, sort
 by hhid: gen dup = cond(_N==1,0,_n)
 drop if dup==2
 
