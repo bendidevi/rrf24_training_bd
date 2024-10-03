@@ -139,6 +139,14 @@
 	separate n_medical, by(in_sample)
 	
 	* Graph bar for number of schools by districts
+	gr hbar 	n_school0 n_school1 , ///
+				nofill ///
+				over(district, sort(n_school) descending) ///
+				legend(order(0 "Districts:" 1 "Not in Sample" 2 "In Sample") row(1)  pos(6)) ///
+				ytitle("Number of Schools") ///
+				name(g1, replace)
+	
+	* Graph bar for number of medical facilities by districts
 	gr hbar 	n_medical0 n_medical1, ///
 				nofill ///
 				over(district, sort(n_medical)) ///
