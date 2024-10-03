@@ -5,16 +5,16 @@ Code for Advanced Applications in Stata: Tools for Reproducible Research
 
 * Update folder path to the raw dataset and add a folder that for outputs that 
 * so that it can be tracked via Github 
-if "`c(username)'" == "???" {
-	global onedrive "???/DataWork/Data/Raw"
-	global outputs 	"???/GitHub-rrf-24/Stata/Outputs"
+if "`c(username)'" == "wb631266" {
+	global onedrive "C:\Users\wb631266\OneDrive - WBG\RRF24\DataWork\Data\Raw"
+	global outputs 	"C:\Users\wb631266\GitHub\rrf24_training_bd\Stata\Outputs"
 }
 
 *-------------------------------------------------------------------------------	
 * Load data
 *------------------------------------------------------------------------------- 
 
-use "${onedrive}/TZA_CCT_baseline.dta", clear
+use "${onedrive}\TZA_CCT_baseline.dta", clear
 
 *-------------------------------------------------------------------------------	
 * Clean data
@@ -101,7 +101,7 @@ foreach win_var in area_acre food_cons_usd nonfood_cons_usd {
 	
 	local `win_var'_lab: variable label `win_var'
 	
-	winsor 	`win_var', p(0.05) high gen(`win_var'_w)
+	win 	`win_var', p(0.05) high gen(`win_var'_w)
 	order 	`win_var'_w, after(`win_var')
 	lab var `win_var'_w "``win_var'_lab' (Winsorized 0.05)"
 	
