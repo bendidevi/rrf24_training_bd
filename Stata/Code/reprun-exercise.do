@@ -101,7 +101,7 @@ foreach win_var in area_acre food_cons_usd nonfood_cons_usd {
 	
 	local `win_var'_lab: variable label `win_var'
 	
-	win 	`win_var', p(0.05) high gen(`win_var'_w)
+	winsor 	`win_var', p(0.05) high gen(`win_var'_w)
 	order 	`win_var'_w, after(`win_var')
 	lab var `win_var'_w "``win_var'_lab' (Winsorized 0.05)"
 	
@@ -184,3 +184,4 @@ gr bar 	trust_mem, ///
 gr export "$outputs/fig1.png", replace				
 		
 *** End of file!
+
